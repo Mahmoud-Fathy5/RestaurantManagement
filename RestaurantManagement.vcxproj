@@ -24,6 +24,7 @@
   <ItemGroup>
     <None Include="Actions\.gitkeep" />
     <None Include="DataStructures\.gitkeep" />
+    <None Include="Entities\.gitkeep" />
     <None Include="Entities\Orders\.gitkeep" />
     <None Include="System\.gitkeep" />
   </ItemGroup>

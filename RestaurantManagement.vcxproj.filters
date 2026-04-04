@@ -8,5 +8,6 @@
     <None Include="DataStructures\.gitkeep" />
     <None Include="Entities\Orders\.gitkeep" />
     <None Include="System\.gitkeep" />
+    <None Include="Entities\.gitkeep" />
   </ItemGroup>
 </Project>
