@@ -38,12 +38,12 @@ Single Node Case:
 
 */
 
-#ifndef LINKED_QUEUE_
-#define LINKED_QUEUE_
+#pragma once
 
 
 #include "Node.h"
 #include "QueueADT.h"
+
 
 template <typename T>
 class LinkedQueue:public QueueADT<T>
@@ -51,19 +51,24 @@ class LinkedQueue:public QueueADT<T>
 private :
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
+	int m_count;
 public :
+	
 	LinkedQueue();	
+	~LinkedQueue();
+	
 	bool isEmpty() const ;
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);  
 	bool peek(T& frntEntry)  const;	
-	~LinkedQueue();
+	int getCount() const;
+	void print() const;
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /*
-Function: Queue()
-The constructor of the Queue class.
+Function: LinkedQueue()
+The constructor of the LinkedQueue class.
 
 */
 
@@ -75,6 +80,28 @@ LinkedQueue<T>::LinkedQueue()
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////
+/*
+Function: ~LinkedQueue
+The destructor of the LinkedQueue class
+
+*/
+
+template <typename T>
+LinkedQueue<T>::~LinkedQueue()
+{
+	//Note that the cout statements here is just for learning purpose
+	//They should be normally removed from the destructor
+	cout<<"\nStarting LinkedQueue destructor...";
+	cout<<"\nFreeing all nodes in the queue...";
+
+	//Free all nodes in the queue
+	T temp;
+	while(dequeue(temp));
+	
+	cout<<"\n Is LinkedQueue Empty now?? ==> "<<boolalpha<<isEmpty();
+	cout<<"\nEnding LinkedQueue destructor..."<<endl;
+}
+///////////////////////////////////////////////////////////////////////////////////
 
 /*
 Function: isEmpty
@@ -165,21 +192,34 @@ bool LinkedQueue<T>:: peek(T& frntEntry) const
 
 }
 ///////////////////////////////////////////////////////////////////////////////////
+/*
+Function: getCount
+Get the number of elements in the Queue
+
+*/
 
 template <typename T>
-LinkedQueue<T>::~LinkedQueue()
+int LinkedQueue<T>::getCount() const
 {
-	//Note that the cout statements here is just for learning purpose
-	//They should be normally removed from the destructor
-	cout<<"\nStarting LinkedQueue destructor...";
-	cout<<"\nFreeing all nodes in the queue...";
+	return m_count;
+}
+///////////////////////////////////////////////////////////////////////////////////
+/*
+Function: print
+prints the elements of the Queue
 
-	//Free all nodes in the queue
-	T temp;
-	while(dequeue(temp));
+*/
+
+template <typename T>
+void LinkedQueue<T>::print() const
+{
+	Node<T>* ptr = frontPtr;
+	while (ptr) 
+	{
+		
+		ptr->print();
+		ptr = ptr->getNext();
 	
-	cout<<"\n Is LinkedQueue Empty now?? ==> "<<boolalpha<<isEmpty();
-	cout<<"\nEnding LinkedQueue destructor..."<<endl;
+	}
 }
 
-#endif

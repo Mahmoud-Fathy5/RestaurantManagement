@@ -3,8 +3,7 @@
 //  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** @file QueueADT.h */
-#ifndef QUEUE_ADT_
-#define QUEUE_ADT_
+#pragma once
 
 #include <iostream>
 using namespace std;
@@ -40,4 +39,3 @@ public:
    /** Destroys this queue and frees its memory. */
    virtual ~QueueADT() { }
 }; // end QueueADT
-#endif

@@ -5,8 +5,7 @@
 /** ADT stack: Array-based implementation.
  @file ArrayStack.h */
 
-#ifndef ARRAY_STACK_
-#define ARRAY_STACK_
+#pragma once
 
 #include "StackADT.h"
 
@@ -57,6 +56,18 @@ public:
 		return true;
 	}  // end peek
 
+	int getCount() const
+	{
+		return top + 1;
+	}  // end getCount
+
+	void print() const
+	{
+		for (int i = 0; i <= top; i++)
+		{
+			cout << item[i] << endl;
+		} 
+	}  // end print
+
 }; // end ArrayStack
 
-#endif
