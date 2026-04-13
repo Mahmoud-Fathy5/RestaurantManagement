@@ -1,4 +1,7 @@
 #pragma once
+
+#include <iostream>
+
 template < typename T>
 class priNode
 {
@@ -31,5 +34,10 @@ public :
 	
 	int getPri() const
 	{		return pri; 	}
+
+	void print() const
+	{
+		cout << item << endl;
+	}
 }; // end Node
 

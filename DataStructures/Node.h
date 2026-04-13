@@ -1,6 +1,8 @@
 
-#ifndef _NODE
-#define _NODE
+#pragma once
+
+#include <iostream>
+
 template <typename T>
 class Node
 {
@@ -15,8 +17,8 @@ public :
 	void setNext(Node<T>* nextNodePtr);
 	T getItem() const ;
 	Node<T>* getNext() const ;
+	void print() const;
 }; // end Node
-#endif
 
 template < typename T>
 Node<T>::Node() 
@@ -60,3 +62,9 @@ Node<T>* Node<T>::getNext() const
 {
 	return next;
 } 
+
+template < typename T >
+void Node<T>::print() const
+{
+	cout << item << endl;
+}
