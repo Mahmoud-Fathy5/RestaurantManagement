@@ -4,8 +4,7 @@
 
 /** @file StackADT.h */
 
-#ifndef STACK_ADT_
-#define STACK_ADT_
+#pragma once
 
 #include <iostream>
 using namespace std;
@@ -40,4 +39,3 @@ public:
    /** Destroys this stack and frees its assigned memory. */
    virtual ~StackADT() { }
 }; // end StackADT
-#endif

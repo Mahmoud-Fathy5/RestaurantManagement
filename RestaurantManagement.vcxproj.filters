@@ -29,5 +29,7 @@
     <ClInclude Include="Entities\Scooter.h" />
     <ClInclude Include="Entities\Table.h" />
     <ClInclude Include="Entities\Orders\TakeAway.h" />
+    <ClInclude Include="DataStructures\DerivedQueue.h" />
+    <ClInclude Include="DataStructures\DerivedPriQueue.h" />
   </ItemGroup>
 </Project>
