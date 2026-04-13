@@ -17,6 +17,18 @@
     <ClInclude Include="DataStructures\QueueADT.h" />
     <ClInclude Include="DataStructures\StackADT.h" />
     <ClInclude Include="DataStructures\LinkedQueue.h" />
+    <ClInclude Include="Actions\action.h" />
+    <ClInclude Include="Actions\RequestAction.h" />
+    <ClInclude Include="Actions\CancelAction.h" />
+    <ClInclude Include="System\Restaurant.h" />
+    <ClInclude Include="Entities\Orders\Order.h" />
+    <ClInclude Include="Entities\Orders\DineInOrder.h" />
+    <ClInclude Include="Entities\Orders\DeliveryOrder.h" />
+    <ClInclude Include="Entities\chefs\SpecialChef.h" />
+    <ClInclude Include="Entities\chefs\NormalChef.h" />
+    <ClInclude Include="Entities\Scooter.h" />
+    <ClInclude Include="Entities\Table.h" />
+    <ClInclude Include="Entities\Orders\TakeAway.h" />
     <ClInclude Include="DataStructures\DerivedQueue.h" />
     <ClInclude Include="DataStructures\DerivedPriQueue.h" />
   </ItemGroup>
