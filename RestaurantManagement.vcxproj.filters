@@ -17,5 +17,7 @@
     <ClInclude Include="DataStructures\QueueADT.h" />
     <ClInclude Include="DataStructures\StackADT.h" />
     <ClInclude Include="DataStructures\LinkedQueue.h" />
+    <ClInclude Include="DataStructures\DerivedQueue.h" />
+    <ClInclude Include="DataStructures\DerivedPriQueue.h" />
   </ItemGroup>
 </Project>

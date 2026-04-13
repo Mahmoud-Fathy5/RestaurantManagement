@@ -7,6 +7,7 @@
 template <typename T>
 class priQueue
 {
+protected:
     priNode<T>* head;
     int m_count;
 public:
