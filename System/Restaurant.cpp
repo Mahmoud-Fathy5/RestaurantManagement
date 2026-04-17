@@ -377,13 +377,15 @@ void Restaurant::randomScooters()
 
 void Restaurant::simulate()
 {
-	generateRandomOrders();
-	randomChefAssignment();
-	randomFinishedCooking();
-	randomServiceAssignment();
-	randomCancelOrder();
-	randomFinishingOrder();
-	randomScooters();
+	while (finishedOrders.getCount() != 500) {
+		generateRandomOrders();
+		randomChefAssignment();
+		randomFinishedCooking();
+		randomServiceAssignment();
+		randomCancelOrder();
+		randomFinishingOrder();
+		randomScooters();
+	}
 }
 
 
