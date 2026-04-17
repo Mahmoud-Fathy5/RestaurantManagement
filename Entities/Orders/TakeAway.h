@@ -10,6 +10,6 @@
 class TakeAway :public Order
 {
 public:
-	TakeAway();
-	~TakeAway();
+	TakeAway(int, int, int, int);
+	 ~TakeAway();
 };

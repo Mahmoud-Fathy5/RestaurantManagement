@@ -7,13 +7,20 @@
 class Table
 {
 private:
-	int m_capacity;
+	const int m_capacity;
+	const int m_tableID;
+	static int s_count;
+	int m_freeSeats;
+
 public:
-	Table();
+	Table(int);
 	~Table();
 
-	void setCapacity(int);
+	void setFreeSeats(int);
 	int getCapacity()const;
+	int getFreeSeats()const;
+	int getTableID()const;
 
-
+	void print()const;
+	
 };

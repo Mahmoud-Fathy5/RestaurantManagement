@@ -7,15 +7,24 @@
 class Scooter
 {
 private:
+	const int m_scooterID;
+	static int s_count;
 	int m_scooterSpeed;
 	int m_maintenanceDuration;
+	const int m_maintenanceOrdersCount;
+	int m_ordersServedAfterLastMaintenanace;	
+	int m_distaneCut;
 public:
-	Scooter();
+	Scooter(int,int,int);
 	~Scooter();
 
-	void setScooterSpeed(int);
-	void setMaintenanceSpeed(int);
 	int getScooterSpeed()const;
 	int getMaintenanceSpeed()const;
+	int getScooterID()const;
 
+	void print()const;
+	bool needsMaintenance()const;
+	bool incrementOrdersServed();
+	bool incrementDistaneCut(float);
+	void resetOrdersServedAfterLastMaintenanace();
 };
