@@ -14,7 +14,7 @@ private:
 	float m_disatance;
 	Scooter* m_pScooter;
 public:
-	DeliveryOrder(int, int, int, int,float,Scooter*, OrderTypeSec);
+	DeliveryOrder(int, int, int, int,float, OrderTypeSec);
 
 	void setDistance(float);
 	void setScooter(Scooter*);
