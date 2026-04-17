@@ -10,8 +10,8 @@ class NormalChef
 private:
 	int m_normalChefSpeed;
 public:
-	NormalChef();
-	~NormalChef();
+	/*NormalChef();
+	~NormalChef();*/
 
 	void setNormalChefSpeed(int);
 	int getNormalChefSpeed()const;

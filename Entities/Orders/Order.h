@@ -12,10 +12,9 @@ private:
 	int m_sizeNumberOfDishesOfOrder;
 	int m_OrderPrice;
 	int ID;
-	//string m_OrderType
 public:
-	Order();
-	~Order();
+	/*Order()=default;
+	~Order()=default;*/
 
 	void setRequestTimeStep(int);
 	void setNumberOfDishes(int);

@@ -12,8 +12,8 @@ class DeliveryOrder :public Order
 private:
 	int Disatance;
 public:
-	DeliveryOrder();
-	~DeliveryOrder();
+	/*DeliveryOrder();
+	~DeliveryOrder();*/
 
 	void setDistance(int);
 	int getDistance()const;

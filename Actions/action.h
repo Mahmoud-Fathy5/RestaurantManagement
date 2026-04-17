@@ -1,20 +1,22 @@
 #pragma once
 
-//Action.h
+//action.h
 //Author:Mohamed Medhat Date[13/4/2026]
 
-
-using namespace std;
-
+//#include"../System/Restaurant.h"
+#include"../DEFS.h"
+#include<fstream>
 #include<iostream>
 #include<string>
+
+using namespace std;
 
 
 class Action
 {
 public:
-	Action();
-	~Action();
+	Action()=default;
+	~Action()=default;
 
 	virtual void act() = 0;
 };

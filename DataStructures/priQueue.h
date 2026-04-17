@@ -11,7 +11,7 @@ private :
     priNode<T>* head;
     int m_count;
 public :
-    priQueue() : head(nullptr) { count = 0; }
+    priQueue() : head(nullptr) { m_count = 0; }
 
     ~priQueue() {
         T tmp;

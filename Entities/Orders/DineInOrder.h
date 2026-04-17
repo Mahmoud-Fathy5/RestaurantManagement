@@ -14,8 +14,8 @@ private:
 	int m_orderDuration;
 	bool m_canShare;
 public:
-	DineInOrder();
-	~DineInOrder();
+	/*DineInOrder();
+	~DineInOrder();*/
 
 	void setNumberOfSeats(int);
 	void setOrderDuration(int);

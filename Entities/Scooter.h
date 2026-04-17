@@ -10,8 +10,8 @@ private:
 	int m_scooterSpeed;
 	int m_maintenanceDuration;
 public:
-	Scooter();
-	~Scooter();
+	Scooter()=default;
+	~Scooter()=default;
 
 	void setScooterSpeed(int);
 	void setMaintenanceSpeed(int);
