@@ -11,7 +11,7 @@ class FitTables : public priQueue<Table*>
 	{
 		Table* bestFit = nullptr;
 		FitTables temp;
-		if (!this->isEmpty()) {
+		while (!this->isEmpty()) {
 			Table* t;
 			int pri;
 			this->dequeue(t, pri);
