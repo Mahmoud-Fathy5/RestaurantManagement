@@ -13,17 +13,15 @@ class CancelAction :public Action
 private:
 
 	int m_cancellationTimeStep;
-	int m_IDForDeliveryOrders;
+	int m_ID;
 
 public:
 
-	CancelAction();
-	~CancelAction();
+	CancelAction(ifstream&);
+	~CancelAction()=default;
 
-	void setCancellationTimeStep(int);
-	void setIDForDeliveryOrders(int);
+	
 	int getIDForDeliveryOrders();
-	int getCancellationTimeStep();
 
 	void act();
 

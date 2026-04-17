@@ -11,7 +11,7 @@ class SpecialChef : Chef
 private:
 
 public:
-	SpecialChef();
-	~SpecialChef();
+	/*SpecialChef();
+	~SpecialChef();*/
 
 };

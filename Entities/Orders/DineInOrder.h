@@ -18,6 +18,8 @@ private:
 public:
 	DineInOrder(int,int,int,int,int,int,bool,OrderType);
 	 ~DineInOrder();
+	/*DineInOrder();
+	~DineInOrder();*/
 
 	void setNumberOfSeats(int);
 	void setOrderDuration(float);

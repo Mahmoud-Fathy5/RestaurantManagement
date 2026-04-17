@@ -40,5 +40,7 @@
     <ClInclude Include="DataStructures\DerivedPriQueue.h" />
     <ClInclude Include="Entities\chefs\Chef.h" />
     <ClInclude Include="Definitions.h" />
+    <ClInclude Include="DataStructures\CookingOrders.h" />
+    <ClInclude Include="DataStructures\FitTables.h" />
   </ItemGroup>
 </Project>

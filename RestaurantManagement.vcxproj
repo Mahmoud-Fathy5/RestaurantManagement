@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -26,7 +26,10 @@
     <ClCompile Include="Entities\Orders\TakeAway.cpp" />
     <ClCompile Include="Entities\Scooter.cpp" />
     <ClCompile Include="Entities\Table.cpp" />
+    <ClCompile Include="Actions\CancelAction.cpp" />
+    <ClCompile Include="Actions\RequestAction.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="System\Restaurant.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Actions\.gitkeep" />
@@ -39,16 +42,18 @@
     <ClInclude Include="Actions\CancelAction.h" />
     <ClInclude Include="Actions\RequestAction.h" />
     <ClInclude Include="DataStructures\ArrayStack.h" />
-    <ClInclude Include="DataStructures\DerivedPriQueue.h" />
-    <ClInclude Include="DataStructures\DerivedQueue.h" />
+    <ClInclude Include="DataStructures\CookingOrders.h" />
+    <ClInclude Include="DataStructures\FitTables.h" />
     <ClInclude Include="DataStructures\LinkedQueue.h" />
     <ClInclude Include="DataStructures\Node.h" />
+    <ClInclude Include="DataStructures\DerivedQueue.h" />
     <ClInclude Include="DataStructures\priNode.h" />
     <ClInclude Include="DataStructures\priQueue.h" />
     <ClInclude Include="DataStructures\QueueADT.h" />
     <ClInclude Include="DataStructures\StackADT.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Entities\chefs\Chef.h" />
+    <ClInclude Include="DEFS.h" />
     <ClInclude Include="Entities\chefs\NormalChef.h" />
     <ClInclude Include="Entities\chefs\SpecialChef.h" />
     <ClInclude Include="Entities\Orders\DeliveryOrder.h" />

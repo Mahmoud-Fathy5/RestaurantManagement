@@ -1,22 +1,23 @@
 #pragma once
-#include "LinkedQueue.h"
+#include "priQueue.h"
 #include "../Entities/Orders/Order.h"
 
-//DerivedQueue.h
-//Author: Mahmoud Fathy	 Date:[17/4/2026]
+//CookingOrders.h
+//Author: Mahmoud Fathy  Date:[17/4/2026] 
 
-class DerivedQueue : public LinkedQueue<Order*>
+class CookingOrders : public priQueue<Order*>
 {
 public:
 	Order* cancelOrder(int ID)
 	{
 		Order* cancelledOrder = nullptr;
-		DerivedQueue temp;
+		CookingOrders temp;
 		while (!this->isEmpty()) {
 			Order* o;
-			this->dequeue(o);
+			int pri;
+			this->dequeue(o, pri);
 			if (!o->getID() == ID) {
-				temp.enqueue(o);
+				temp.enqueue(o, pri);
 			}
 			else {
 				cancelledOrder = o;

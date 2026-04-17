@@ -16,6 +16,8 @@ private:
 public:
 	DeliveryOrder(int, int, int, int,float,Scooter*);
 	~DeliveryOrder();
+	/*DeliveryOrder();
+	~DeliveryOrder();*/
 
 	void setDistance(float);
 	void setScooter(Scooter*);

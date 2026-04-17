@@ -22,6 +22,11 @@ protected:
 public:
 	Order(int, int, int, int );
 	virtual ~Order();
+	int m_OrderPrice;
+	int ID;
+public:
+	/*Order()=default;
+	~Order()=default;*/
 
 	void setRequestTimeStep(int);
 	void setNumberOfDishes(int);
@@ -38,4 +43,5 @@ public:
 	
 
 };
+	int getID()const;
 

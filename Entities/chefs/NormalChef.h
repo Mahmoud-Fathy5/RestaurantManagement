@@ -11,8 +11,8 @@ class NormalChef : public Chef
 private:
 
 public:
-	NormalChef();
-	~NormalChef();
+	/*NormalChef();
+	~NormalChef();*/
 
 	
 };

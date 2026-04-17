@@ -15,6 +15,8 @@ private:
 public:
 	Table(int);
 	~Table();
+	Table()=default;
+	~Table()=default;
 
 	void setFreeSeats(int);
 	int getCapacity()const;
