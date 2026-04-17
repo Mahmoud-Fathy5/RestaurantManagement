@@ -7,10 +7,10 @@
 template <typename T>
 class priQueue
 {
-protected:
+private :
     priNode<T>* head;
     int m_count;
-public:
+public :
     priQueue() : head(nullptr) { count = 0; }
 
     ~priQueue() {

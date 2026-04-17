@@ -48,7 +48,7 @@ Single Node Case:
 template <typename T>
 class LinkedQueue:public QueueADT<T>
 {
-protected :
+private :
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
 	int m_count;

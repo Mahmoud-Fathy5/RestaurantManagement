@@ -11,6 +11,7 @@ private:
 	int m_requestTimeStep;
 	int m_sizeNumberOfDishesOfOrder;
 	int m_OrderPrice;
+	int ID;
 	//string m_OrderType
 public:
 	Order();
@@ -22,6 +23,6 @@ public:
 	int getRequestTimeStep()const;
 	int getNumberOfDishes()const;
 	int getOrderPrice()const;
-
+	int getID()const;
 
 };

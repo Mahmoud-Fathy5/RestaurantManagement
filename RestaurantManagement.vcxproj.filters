@@ -30,6 +30,7 @@
     <ClInclude Include="Entities\Table.h" />
     <ClInclude Include="Entities\Orders\TakeAway.h" />
     <ClInclude Include="DataStructures\DerivedQueue.h" />
-    <ClInclude Include="DataStructures\DerivedPriQueue.h" />
+    <ClInclude Include="DataStructures\CookingOrders.h" />
+    <ClInclude Include="DataStructures\FitTables.h" />
   </ItemGroup>
 </Project>
