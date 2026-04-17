@@ -9,8 +9,8 @@ class Table
 private:
 	int m_capacity;
 public:
-	Table();
-	~Table();
+	Table()=default;
+	~Table()=default;
 
 	void setCapacity(int);
 	int getCapacity()const;

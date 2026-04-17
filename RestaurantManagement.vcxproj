@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actions\CancelAction.cpp" />
+    <ClCompile Include="Actions\RequestAction.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="System\Restaurant.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Actions\.gitkeep" />
@@ -41,6 +44,7 @@
     <ClInclude Include="DataStructures\priQueue.h" />
     <ClInclude Include="DataStructures\QueueADT.h" />
     <ClInclude Include="DataStructures\StackADT.h" />
+    <ClInclude Include="DEFS.h" />
     <ClInclude Include="Entities\chefs\NormalChef.h" />
     <ClInclude Include="Entities\chefs\SpecialChef.h" />
     <ClInclude Include="Entities\Orders\DeliveryOrder.h" />
@@ -75,7 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">

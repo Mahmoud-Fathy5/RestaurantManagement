@@ -8,8 +8,8 @@ class SpecialChef
 private:
 	int m_specialChefSpeed;
 public:
-	SpecialChef();
-	~SpecialChef();
+	/*SpecialChef();
+	~SpecialChef();*/
 
 	void setSpecialChefSpeed(int);
 	int getSpecialChefSpeed()const;

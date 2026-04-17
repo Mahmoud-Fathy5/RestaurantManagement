@@ -6,16 +6,20 @@
 
 
 #include "action.h"
+#include"../Entities/Orders/Order.h"
+#include"../Entities/Orders/DeliveryOrder.h"
+#include"../Entities/Orders/DineInOrder.h"
+//#include"../System/Restaurant.h"
 
 class RequestAction :public Action
 {
 private:
 
-	string m_orderType;
+	OrderType m_orderType;
 	int m_requestTimeStep;
 	int ID;
 	int m_sizeWhichIsNumberOfDishesOfOrder;
-	float orderPrice;
+	float m_orderPrice;
 	int m_numberOfSeatsForDineInOrders;
 	float m_orderDurationForDineInOrders;
 	bool m_canShareForDineInOrders;
@@ -23,24 +27,11 @@ private:
 
 public:
 
-	RequestAction();
-	~RequestAction();
+	RequestAction(ifstream&);
+	~RequestAction()=default;
 
-	void setRequestTimeStep(int);
-	void setNumberOfDishesOfOrder(int);
-	void setOrderPrice(float);
-	void setNumberOfSeatsForDineInOrders(int);
-	void setOrderDurationForDineInOrders(int);
-	void setCanShareForDineInOrders(bool);
-	void setDistanceForDeliveryOrders(int);
-	string getOrderType();
+	
 	int getRequestTimeStep();
-	int getNumberOfDishesOfOrder();
-	float getOrderPrice();
-	int getNumberOfSeatsForDineInOrders();
-	int getOrderDurationForDineInOrders();
-	bool getCanShareForDineInOrders();
-	int getDistanceForDeliveryOrders();
 
 	void act();
 
