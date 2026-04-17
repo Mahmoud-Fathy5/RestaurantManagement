@@ -62,7 +62,7 @@ public :
 	bool dequeue(T& frntEntry);  
 	bool peek(T& frntEntry)  const;	
 	int getCount() const;
-	void print() const;
+	inline void print() const;
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -211,7 +211,7 @@ prints the elements of the Queue
 */
 
 template <typename T>
-void LinkedQueue<T>::print() const
+inline void LinkedQueue<T>::print() const
 {
 	Node<T>* ptr = frontPtr;
 	while (ptr) 
@@ -220,6 +220,21 @@ void LinkedQueue<T>::print() const
 		ptr->print();
 		ptr = ptr->getNext();
 	
+	}
+}
+class Action;
+
+
+template <>
+inline void LinkedQueue<Action*>::print() const
+{
+	Node<Action*>* ptr = frontPtr;
+	int i = 0;
+	while (ptr && i < 10)
+	{
+		ptr->print();
+		ptr = ptr->getNext();
+		i++;
 	}
 }
 

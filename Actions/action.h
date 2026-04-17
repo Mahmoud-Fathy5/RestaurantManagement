@@ -8,6 +8,7 @@
 #include<fstream>
 #include<iostream>
 #include<string>
+#include "../DataStructures/LinkedQueue.h"
 
 using namespace std;
 
