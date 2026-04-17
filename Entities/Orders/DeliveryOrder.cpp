@@ -3,11 +3,14 @@
 
 #include "DeliveryOrder.h"
 
-DeliveryOrder::DeliveryOrder(int requestTimeStep, int sizeNumberOfDishesOfOrder, int orderPrice, int orderID,float distance,Scooter* pS):
+DeliveryOrder::DeliveryOrder(int requestTimeStep, int sizeNumberOfDishesOfOrder,
+	int orderPrice, int orderID,float distance,
+	Scooter* pS, OrderTypeSec type):
 	Order(requestTimeStep, sizeNumberOfDishesOfOrder, orderPrice, orderID)
 {
 	 setDistance(distance);
 	 setScooter(pS);
+	 m_orderType = type;
 }
 
 void DeliveryOrder::setDistance(float distance)

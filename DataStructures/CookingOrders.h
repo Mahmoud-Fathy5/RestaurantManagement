@@ -16,7 +16,7 @@ public:
 			Order* o;
 			int pri;
 			this->dequeue(o, pri);
-			if (!o->getID() == ID) {
+			if (!o->getOrderID() == ID) {
 				temp.enqueue(o, pri);
 			}
 			else {

@@ -60,7 +60,7 @@ int Order::getOrderID() const
 	return m_orderID;
 }
 
-OrderType Order::getOrderType() const
+OrderTypeSec Order::getOrderType() const
 {
 	return m_orderType;
 }

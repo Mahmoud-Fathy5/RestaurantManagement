@@ -5,7 +5,7 @@
 #include "DineInOrder.h"
 
 DineInOrder::DineInOrder(int requestTimeStep, int sizeNumberOfDishesOfOrder, int orderPrice, int orderID,
-	int numberOfSeats, int orderDuration,bool canshare ,OrderType type):
+	int numberOfSeats, int orderDuration,bool canshare ,OrderTypeSec type):
 	Order(requestTimeStep, sizeNumberOfDishesOfOrder, orderPrice, orderID)
 {
 	setNumberOfSeats(numberOfSeats);

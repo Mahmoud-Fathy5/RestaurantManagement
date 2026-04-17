@@ -10,8 +10,7 @@
 #include"../Actions/CancelAction.h"
 //#include "../DataStructures/LinkedQueue.h"
 //#include"../DataStructures/priQueue.h"
-#include "../Entities/chefs/NormalChef.h"
-#include "../Entities/chefs/SpecialChef.h"
+#include "../Entities/chefs/Chef.h"
 //#include"../Entities/Orders/Order.h"
 #include"../Entities/Orders/DeliveryOrder.h"
 #include"../Entities/Orders/DineInOrder.h"
@@ -54,8 +53,8 @@ private:
 	LinkedQueue<Order*>pendingDeliveryDineInNormalOrderList;
 	DerivedQueue pendingDeliveryColdOrders;
 	priQueue<Order*>pendingDeliveryGrilledOrders;
-	LinkedQueue<SpecialChef*>freeSpecialChef;
-	LinkedQueue<NormalChef*>freeNormalChef;
+	LinkedQueue<Chef*>freeSpecialChef;
+	LinkedQueue<Chef*>freeNormalChef;
 	ArrayStack<Order*>cancelledOrders;
 	ArrayStack<Order*>finishedOrders;
 	CookingOrders cookingOrders;

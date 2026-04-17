@@ -4,7 +4,7 @@
 //Chef.h
 //Author:Mahmoud Taha Date[13/4/2026]
 
-#include "../../Definitions.h"
+#include "../../DEFS.h"
 
 class Chef
 {
@@ -20,6 +20,6 @@ public:
 	int getChefSpeed()const;
 	int getChefID()const;
 
-	virtual void print()const =0;
+	void print()const;
 
 };

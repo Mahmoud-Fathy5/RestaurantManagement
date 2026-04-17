@@ -16,8 +16,6 @@ private:
 	int m_distaneCut;
 public:
 	Scooter(int,int,int);
-	~Scooter();
-	Scooter()=default;
 	~Scooter()=default;
 
 	int getScooterSpeed()const;

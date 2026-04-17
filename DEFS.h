@@ -9,3 +9,10 @@ enum OrderType
 	OVC,
 	OT
 };
+
+enum OrderTypeSec
+{
+	NORMAL,
+	GRILLED,
+	COLD
+};

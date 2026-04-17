@@ -16,10 +16,7 @@ private:
 	Table* m_pTable;
 
 public:
-	DineInOrder(int,int,int,int,int,int,bool,OrderType);
-	 ~DineInOrder();
-	/*DineInOrder();
-	~DineInOrder();*/
+	DineInOrder(int,int,int,int,int,int,bool,OrderTypeSec);
 
 	void setNumberOfSeats(int);
 	void setOrderDuration(float);

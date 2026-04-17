@@ -7,13 +7,13 @@ void Restaurant::readChef(ifstream&file)
 	for (int i = 0; i < stoi(nc); i++)
 	{
 		//add speed to chef constructor
-		NormalChef* ch = new NormalChef();
+		Chef* ch = new Chef(stoi(snc));
 		freeNormalChef.enqueue(ch);
 	}
 	for (int i = 0; i < stoi(sc); i++)
 	{
 		//add speed to chef constructor
-		SpecialChef* ch = new SpecialChef();
+		Chef* ch = new Chef(stoi(ssc));
 		freeSpecialChef.enqueue(ch);
 	}
 
@@ -26,7 +26,7 @@ void Restaurant::readScooters(ifstream&file)
 	for (int i = 0; i < stoi(scooterNumber); i++)
 	{
 		//add speed to ScooterConstructor
-		Scooter* sc = new Scooter;
+		Scooter* sc = new Scooter(stoi(scooterSpeed), stoi(mainDuration), stoi(mainOrders));
 		freeScooters.enqueue(sc,0);
 	}
 }
@@ -43,7 +43,7 @@ void Restaurant::readTables(ifstream&file)
 		for (int j = 0; j < stoi(noTables); j++)
 		{
 			//add no of seats to the constructor of table
-			Table* t = new Table;
+			Table* t = new Table(stoi(noSeats));
 			freeTables.enqueue(t,-1*stoi(noSeats));
 		}
 		i = i + stoi(noTables);

@@ -11,5 +11,4 @@ class TakeAway :public Order
 {
 public:
 	TakeAway(int, int, int, int);
-	 ~TakeAway();
 };

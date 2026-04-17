@@ -15,7 +15,7 @@ public:
 		while (!this->isEmpty()) {
 			Order* o;
 			this->dequeue(o);
-			if (!o->getID() == ID) {
+			if (!o->getOrderID() == ID) {
 				temp.enqueue(o);
 			}
 			else {

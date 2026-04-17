@@ -5,7 +5,7 @@
 //Author: Mahmoud Taha Date[13/4/2026]
 
 #include "../chefs/Chef.h"
-#include "../../Definitions.h"
+#include "../../DEFS.h"
 
 using namespace std;
 
@@ -18,15 +18,9 @@ private:
 	Chef* m_pChef;
 	const int m_orderID;
 protected:
-	OrderType m_orderType;
+	OrderTypeSec m_orderType;
 public:
 	Order(int, int, int, int );
-	virtual ~Order();
-	int m_OrderPrice;
-	int ID;
-public:
-	/*Order()=default;
-	~Order()=default;*/
 
 	void setRequestTimeStep(int);
 	void setNumberOfDishes(int);
@@ -37,11 +31,10 @@ public:
 	int getOrderPrice()const;
 	Chef* getChef()const;
 	int getOrderID()const;
-	OrderType getOrderType()const;
+	OrderTypeSec getOrderType()const;
 
 	virtual void print()const=0;
 	
 
 };
-	int getID()const;
 
