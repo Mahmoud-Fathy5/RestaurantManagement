@@ -1,6 +1,3 @@
-
-
-
 int main() {
 	//ifstream file
 	//file.open("")

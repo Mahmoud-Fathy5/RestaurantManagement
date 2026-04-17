@@ -6,16 +6,22 @@
 
 
 #include "Order.h"
+#include "../Scooter.h"
 
 class DeliveryOrder :public Order
 {
 private:
-	int Disatance;
+	float m_disatance;
+	Scooter* m_pScooter;
 public:
+	DeliveryOrder(int, int, int, int,float,Scooter*);
+	~DeliveryOrder();
 	/*DeliveryOrder();
 	~DeliveryOrder();*/
 
-	void setDistance(int);
-	int getDistance()const;
+	void setDistance(float);
+	void setScooter(Scooter*);
+	float getDistance()const;
+	Scooter* getScooter()const;
 
 };
