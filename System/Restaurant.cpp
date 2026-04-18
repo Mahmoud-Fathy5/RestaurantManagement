@@ -301,7 +301,7 @@ void Restaurant::randomFinishedCooking()
 			Order* o = nullptr;
 			int pri;
 			cookingOrders.dequeue(o, pri);
-			if (!o) { continue; }
+			if (!o) { return; }
 			if (o->getChef()->getChefType() == CN) { freeNormalChef.enqueue(o->getChef()); }
 			else { freeSpecialChef.enqueue(o->getChef()); }
 			o->setChef(nullptr);
@@ -331,7 +331,11 @@ void Restaurant::randomServiceAssignment()
 				Table* t = nullptr;
 				int pri;
 				freeTables.dequeue(t, pri);
-				if (!t) { continue; }
+				if (!t) 
+				{ 
+					readyDineInOrder.enqueue(o);
+					continue;
+				}
 				inServiceOrder.enqueue(o, 0);
 				od->setTable(t);
 				if (od->getCanShare()) { busySharable.enqueue(t, 0); }
@@ -346,7 +350,11 @@ void Restaurant::randomServiceAssignment()
 				Scooter* sc = nullptr;
 				int pri;
 				freeScooters.dequeue(sc,pri);
-				if (!sc) { continue; }
+				if (!sc) 
+				{ 
+					readyDeliveryOrder.enqueue(o);
+					continue;
+				}
 				inServiceOrder.enqueue(o, 0);
 				ov->setScooter(sc);
 			}
@@ -409,6 +417,42 @@ void Restaurant::randomFinishingOrder()
 			DineInOrder* od = (DineInOrder*)o;
 			Table* t = od->getTable();
 			if (!t) { return; }
+			FitTables temp;
+			if (od->getCanShare()) {
+				while (!busyNoShare.isEmpty()) {
+					Table* tt = nullptr;
+					int pri;
+					busyNoShare.dequeue(tt, pri);
+					if (!(t == tt)) {
+						temp.enqueue(tt, pri);
+					}
+				}
+				while (!temp.isEmpty()) {
+					Table* tt = nullptr;
+					int pri;
+					temp.dequeue(tt, pri);
+					busyNoShare.enqueue(tt, pri);
+				}
+
+			}
+			else
+			{
+				while (!busySharable.isEmpty()) {
+					Table* tt = nullptr;
+					int pri;
+					busySharable.dequeue(tt, pri);
+					if (!(t == tt)) {
+						temp.enqueue(tt, pri);
+					}
+				}
+				while (!temp.isEmpty()) {
+					Table* tt = nullptr;
+					int pri;
+					temp.dequeue(tt, pri);
+					busySharable.enqueue(tt, pri);
+				}
+			}
+
 			freeTables.enqueue(t, 0);
 			od->setTable(nullptr);
 		}
@@ -426,7 +470,7 @@ void Restaurant::randomScooters()
 		backScooters.dequeue(sc, pri);
 		if (sc) {
 			random = rand() % 2;
-			if (random) { freeScooters.enqueue(sc, 0); }
+			if (random == 1) { freeScooters.enqueue(sc, 0); }
 			else { maintenanceScooter.enqueue(sc); }
 		}
 	}
