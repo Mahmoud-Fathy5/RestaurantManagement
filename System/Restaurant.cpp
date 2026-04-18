@@ -101,25 +101,25 @@ void Restaurant::generateRandomOrders()
 {
     srand(time(0));
 
-	int noOfNC = rand() % 20;
+	int noOfNC = rand() % 20 + 5;
 	for (int i = 0; i < noOfNC; i++)
 	{
 		Chef* NC = new Chef(0);
 		freeNormalChef.enqueue(NC);
 	}
-	int noOfSC = rand() % 20;
+	int noOfSC = rand() % 20 + 5;
 	for (int i = 0; i < noOfNC; i++)
 	{
 		Chef* SC = new Chef(0);
 		freeSpecialChef.enqueue(SC);
 	}
-	int noOfScooters = rand() % 20;
+	int noOfScooters = rand() % 20 + 5;
 	for (int i = 0; i < noOfNC; i++)
 	{
 		Scooter* sc = new Scooter(1, 1, 1);
 		freeScooters.enqueue(sc, 0);
 	}
-	int noOfTables = rand() % 20;
+	int noOfTables = rand() % 20 + 5;
 	for (int i = 0; i < noOfTables; i++)
 	{
 		Table* t = new Table(0);
