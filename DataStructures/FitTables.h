@@ -22,6 +22,13 @@ class FitTables : public priQueue<Table*>
 				bestFit = t;
 			}	//End else
 		}	//End while
+		while (!temp.isEmpty())
+		{
+			Table* t;
+			int pri;
+			temp.dequeue(t, pri);
+			this->enqueue(t, pri);
+		}
 		return bestFit;
 	}	//End getBest
 };

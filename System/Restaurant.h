@@ -109,7 +109,7 @@ public:
 	void addBusySharableTables(Table*);
 	void addBusyNoShareTables(Table*);*/
 
-	
+
 	void generateRandomOrders();
 	void randomChefAssignment();
 	void randomFinishedCooking();
