@@ -4,6 +4,9 @@
 //Table.h
 //Author:Mahmoud Taha Date[13/4/2026]
 
+#include <iostream>
+using namespace std;
+
 class Table
 {
 private:
@@ -22,5 +25,6 @@ public:
 	int getTableID()const;
 
 	void print()const;
-	
+
+	friend ostream& operator << (ostream& outputStream, Table* pTable);
 };

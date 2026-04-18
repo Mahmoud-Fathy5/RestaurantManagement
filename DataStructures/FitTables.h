@@ -7,6 +7,7 @@
 
 class FitTables : public priQueue<Table*>
 {
+public:
 	Table* getBest(int neededSeats)		//The Lowest Table has the most pri -> pri = -number of available seats
 	{
 		Table* bestFit = nullptr;

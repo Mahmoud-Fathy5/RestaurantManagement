@@ -4,6 +4,9 @@
 //Scooter.h
 //Author:Mahmoud Taha Date[13/4/2026]
 
+#include <iostream>
+using namespace std;
+
 class Scooter
 {
 private:
@@ -27,4 +30,6 @@ public:
 	bool incrementOrdersServed();
 	bool incrementDistaneCut(float);
 	void resetOrdersServedAfterLastMaintenanace();
+
+	friend ostream& operator << (ostream& outputStream, Scooter* pScooter);
 };

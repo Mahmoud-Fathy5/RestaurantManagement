@@ -35,7 +35,4 @@ public:
 
 	void act();
 	void print(ostream&) override;
-
-
-	RequestAction() = default;
 };

@@ -2,13 +2,12 @@
 //Author:Mahmoud Taha Date[13/4/2026]
 
 #include "Scooter.h"
-#include<ostream>
-using namespace std;
+
 
 Scooter::Scooter(int scooterSpeed,int maintenanceDuration,int maintenanceOrdersCount):
 	m_scooterID(s_count++), m_maintenanceOrdersCount(maintenanceOrdersCount)
 {
-	m_scooterSpeed = (scooterSpeed > 0) ? scooterSpeed: -1;
+	m_scooterSpeed = (scooterSpeed >= 0) ? scooterSpeed: -1;
 	m_maintenanceDuration = (maintenanceDuration >= 0) ? maintenanceDuration : -1;
 	m_ordersServedAfterLastMaintenanace = 0;
 	m_distaneCut = 0;

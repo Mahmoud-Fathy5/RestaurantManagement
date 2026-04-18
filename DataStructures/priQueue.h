@@ -8,7 +8,7 @@ template <typename T>
 class priQueue
 {
 
-private :
+protected :
     priNode<T>* head;
     int m_count;
 public :
@@ -28,6 +28,7 @@ public :
             
             newNode->setNext(head);
             head = newNode;
+            m_count++;
             return;
         }
        
@@ -42,7 +43,9 @@ public :
 
     bool dequeue(T& topEntry, int& pri) {
         if (isEmpty())
+        {
             return false;
+        }
 
         topEntry = head->getItem(pri);
         priNode<T>* temp = head;
@@ -55,13 +58,13 @@ public :
     bool peek(T& topEntry, int& pri) {
         if (isEmpty())
             return false;
-
-        topEntry = head->getItem();
+        topEntry = head->getItem(pri);
         pri = head->getPri();
         return true;
     }
 
     bool isEmpty() const {
+     
         return head == nullptr;
     }
     
@@ -79,7 +82,7 @@ public :
             ptr->print();
             if (ptr->getNext() != nullptr) {
 			cout << ",";
-		}
+		    }
             ptr = ptr->getNext();
 
         }

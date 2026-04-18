@@ -35,7 +35,10 @@ Scooter* DeliveryOrder::getScooter() const
 
 void DeliveryOrder::print(ostream& O)
 {
-	if (this->getScooter() != nullptr) {
+	if (this->getChef() != nullptr) {
+		O << "[" << this->getOrderID() << "," << this->getChef()->getChefID() << "]";
+	}
+	else if (this->getScooter() != nullptr) {
 			O << "[" << getOrderID() << ",S" << getScooter()->getScooterID() << "]";
 		}
 	else{

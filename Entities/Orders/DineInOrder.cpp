@@ -56,7 +56,10 @@ Table* DineInOrder::getTable() const
 
 void DineInOrder::print(ostream& O) 
 {
-	if (this->getTable() !=nullptr) {
+	if (this->getChef() != nullptr) {
+		O << "[" << this->getOrderID() << "," << this->getChef()->getChefID() << "]";
+	}
+	else if (this->getTable() !=nullptr) {
 		O << "[" << getOrderID()<<",T"<<getTable()->getTableID() << "]";
 	}
 	else{

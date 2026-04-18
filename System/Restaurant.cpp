@@ -122,7 +122,7 @@ void Restaurant::generateRandomOrders()
 	int noOfTables = rand() % 20;
 	for (int i = 0; i < noOfTables; i++)
 	{
-		Table* t = nullptr;
+		Table* t = new Table(0);
 		freeTables.enqueue(t, 0);
 	}
 
@@ -283,6 +283,7 @@ void Restaurant::randomFinishedCooking()
 			Order* o = nullptr;
 			int pri;
 			cookingOrders.dequeue(o, pri);
+			if (!o) { continue; }
 			freeNormalChef.enqueue(o->getChef());
 			o->setChef(nullptr);
 			if (dynamic_cast<DineInOrder*>(o)) { readyDineInOrder.enqueue(o); }
@@ -308,11 +309,11 @@ void Restaurant::randomServiceAssignment()
 			readyDineInOrder.dequeue(o);
 			if (o) {
 				DineInOrder* od = (DineInOrder*)o;
-				inServiceOrder.enqueue(o, 0);
 				Table* t = nullptr;
 				int pri;
 				freeTables.dequeue(t, pri);
 				if (!t) { continue; }
+				inServiceOrder.enqueue(o, 0);
 				od->setTable(t);
 				if (od->getCanShare()) { busySharable.enqueue(t, 0); }
 				else { busyNoShare.enqueue(t,0); }
@@ -323,9 +324,11 @@ void Restaurant::randomServiceAssignment()
 			readyDeliveryOrder.dequeue(o);
 			if (o) {
 				DeliveryOrder* ov = (DeliveryOrder*)o;
-				inServiceOrder.enqueue(o, 0);
 				Scooter* sc = nullptr;
+				int pri;
+				freeScooters.dequeue(sc,pri);
 				if (!sc) { continue; }
+				inServiceOrder.enqueue(o, 0);
 				ov->setScooter(sc);
 			}
 			break;
@@ -413,9 +416,7 @@ void Restaurant::randomScooters()
 void Restaurant::simulate()
 {
 	int currnet_Time_Step = 0;
-	Action* taha= new RequestAction;
 	generateRandomOrders();
-	actionsList.enqueue(taha);
 	while ((finishedOrders.getCount() + cancelledOrders.getCount()) != 500) {
 		userInterface->printScreen(currnet_Time_Step,
 			actionsList,
@@ -440,6 +441,7 @@ void Restaurant::simulate()
 			freeTables,
 			busySharable,
 			busyNoShare);
+		system("cls");
 
 		randomChefAssignment();
 		randomFinishedCooking();

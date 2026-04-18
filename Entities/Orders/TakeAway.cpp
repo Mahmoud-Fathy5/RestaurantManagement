@@ -10,7 +10,13 @@ TakeAway::TakeAway(int requestTimeStep, int sizeNumberOfDishesOfOrder, int order
 
 void TakeAway::print(ostream& O)
 {
-	O<<getOrderID();
+	if (this->getChef() != nullptr) {
+		O << "[" << this->getOrderID() << "," << this->getChef()->getChefID() << "]";
+	}
+	else {
+		O << getOrderID();
+	}
+	
 }
 
 

@@ -33,5 +33,18 @@ public:
 		return cancelledOrder;
 	}	//End cancelOrder
 
+	//void print() const
+	//{
+	//	priNode<Order*>* ptr = head;
+	//	while (ptr)
+	//	{
+	//		int pri;
+	//		Order* o = ptr->getItem(pri);
+	//		cout << "[" << o->getOrderID() << "," <<o->getChef()->getChefID()<<"]";
+	//		ptr = ptr->getNext();
+
+	//	}
+	//}
+
 	
 };

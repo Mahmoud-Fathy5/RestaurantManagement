@@ -30,7 +30,7 @@ void UI::readOutputFileName(string s)
 void UI::readMode()
 {
 	int mode;
-    cout << "======================================== Restaurant Management System ========================================" << endl;
+    cout << "-----------------------------------------Restaurant Management System-----------------------------------------" << endl;
     cout << "Please select the program mode:" << endl;
     cout << "1.Silent" << endl;
     cout << "2.Interactive" << endl;
@@ -71,12 +71,12 @@ void UI::printScreen(int currentTimeStep,
     FitTables& busyNoShare)
 {
     cout << "Current Timestep:" << currentTimeStep <<endl;
-    cout << "=============== Actions List ================"<<endl;
+    cout << "-----------------------------------------Actions List-----------------------------------------"<<endl;
     cout << actionsList.getCount() << "actions remaining:";
     actionsList.print();
     cout << endl;
 
-    cout << "—------------- Pending Orders IDs —---------------------" << endl;
+    cout << "-----------------------------------------Pending Orders IDs-----------------------------------------" << endl;
     cout << pendingDineInGrilledOrderList.getCount() << " ODG ";
     pendingDineInGrilledOrderList.print();
     cout << endl;
@@ -97,7 +97,7 @@ void UI::printScreen(int currentTimeStep,
     cout << endl;
 
 
-    cout << "----------------------------------------- Available Chefs -----------------------------------------" << endl;
+    cout << "-----------------------------------------Available Chefs-----------------------------------------" << endl;
     cout << freeSpecialChef.getCount() <<" CS : ";
     freeSpecialChef.print();
     cout << endl;
@@ -106,12 +106,12 @@ void UI::printScreen(int currentTimeStep,
     cout << endl;
 
 
-    cout << "—------------- Cooking orders [Orders ID, chef ID] —---------------------" << endl;
+    cout << "-----------------------------------------Cooking orders [Orders ID, chef ID]-----------------------------------------" << endl;
     cout <<cookingOrders.getCount()<<" cooking orders: [";
     cookingOrders.print();
     cout << "]";
-
-    cout << "—------------- Ready Orders IDs —---------------------" << endl;
+    cout << endl;
+    cout << "-----------------------------------------Ready Orders IDs-----------------------------------------" << endl;
     cout << readyTakeAwayOrder.getCount()<< " OT ";
     readyTakeAwayOrder.print();
     cout << endl;
@@ -123,40 +123,41 @@ void UI::printScreen(int currentTimeStep,
     cout << endl;
 
 
-    cout << "—------------- Available scooters IDs —----------------------" << endl;
+    cout << "-----------------------------------------Available scooters IDs-----------------------------------------" << endl;
     cout << freeScooters.getCount() << " Scooters : ";
     freeScooters.print();
     cout << endl;
 
    
-    cout<< "—------------ - Available tables[ID, capacity, free seats] —----------------------"<<endl;
+    cout<< "-----------------------------------------Available tables[ID, capacity, free seats]-----------------------------------------"<<endl;
     cout << freeTables.getCount()+busySharable.getCount()<<" tables";
     busySharable.print();
     cout << endl;
     freeTables.print();
     cout << endl;
-    cout << "—------------- In-Service orders [order ID, scooter/Table ID] --—---------------------" << endl;
+
+    cout << "-----------------------------------------In-Service orders [order ID, scooter/Table ID]-----------------------------------------" << endl;
     cout << inServiceOrder.getCount()<<" Orders: ";
     inServiceOrder.print();
     cout << endl;
 
 
-    cout << "—------------- In-maintainance scooters IDs ----------------------" <<endl;
+    cout << "-----------------------------------------In-maintainance scooters IDs-----------------------------------------" <<endl;
     cout << maintenanceScooter.getCount() << " scooters: ";
     maintenanceScooter.print();
     cout << endl;
 
-    cout << "—------------  Scooters Back to Restaurant IDs----------------------" << endl;
+    cout << "-----------------------------------------Scooters Back to Restaurant IDs-----------------------------------------" << endl;
     cout << backScooters.getCount() << " scooters: ";
     backScooters.print();
     cout << endl;
 
-    cout << "—------------- Cancelled Orders IDs ----------------------" << endl;
+    cout << "-----------------------------------------Cancelled Orders IDs-----------------------------------------" << endl;
     cout << cancelledOrders.getCount() << " Cancelled: ";
     cancelledOrders.print();
     cout << endl;
 
-    cout << "—------------- Finished orders IDs----------------------------" << endl;
+    cout << "-----------------------------------------Finished orders IDs-----------------------------------------" << endl;
     cout << finishedOrders.getCount() << " Finshed: ";
     finishedOrders.print();
     cout << endl;
