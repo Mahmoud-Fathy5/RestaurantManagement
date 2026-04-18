@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actions\action.cpp" />
     <ClCompile Include="Entities\chefs\Chef.cpp" />
     <ClCompile Include="Entities\Orders\DeliveryOrder.cpp" />
     <ClCompile Include="Entities\Orders\DineInOrder.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="Actions\RequestAction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="System\Restaurant.cpp" />
+    <ClCompile Include="System\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Actions\.gitkeep" />
@@ -59,7 +61,9 @@
     <ClInclude Include="Entities\Orders\TakeAway.h" />
     <ClInclude Include="Entities\Scooter.h" />
     <ClInclude Include="Entities\Table.h" />
+    <ClInclude Include="HelperFunctions.h" />
     <ClInclude Include="System\Restaurant.h" />
+    <ClInclude Include="System\UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

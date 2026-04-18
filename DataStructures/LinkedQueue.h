@@ -218,6 +218,9 @@ void LinkedQueue<T>::print() const
 	{
 		
 		ptr->print();
+		if (ptr->getNext() != nullptr) {
+			cout << ",";
+		}
 		ptr = ptr->getNext();
 	
 	}

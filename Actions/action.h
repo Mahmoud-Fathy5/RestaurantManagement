@@ -15,9 +15,15 @@ using namespace std;
 class Action
 {
 public:
-	Action()=default;
+	Action() = default;
 	~Action()=default;
 
 	virtual void act() = 0;
+	virtual void print(ostream&) = 0;
+
 };
+
+
+
+
 

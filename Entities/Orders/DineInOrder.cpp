@@ -53,3 +53,13 @@ Table* DineInOrder::getTable() const
 {
 	return m_pTable;
 }
+
+void DineInOrder::print(ostream& O) 
+{
+	if (this->getTable() !=nullptr) {
+		O << "[" << getOrderID()<<",T"<<getTable()->getTableID() << "]";
+	}
+	else{
+		O << getOrderID();
+	}
+}

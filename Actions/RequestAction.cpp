@@ -1,5 +1,5 @@
 #pragma once
-#include"../DEFS.h"
+#include"../HelperFunctions.h"
 
 //RequestAction.cpp 
 //Author : Mohamed Medhat Date[17/4/2026]
@@ -16,7 +16,7 @@ RequestAction::RequestAction(ifstream&file)
 	file >> t;
 	m_requestTimeStep = stoi(t);
 	file >> t;
-	ID = stoi(t);
+	m_ID = stoi(t);
 	file >> t;
 	m_sizeWhichIsNumberOfDishesOfOrder = stoi(t);
 	file >> t;
@@ -53,6 +53,11 @@ int RequestAction::getRequestTimeStep()
 void RequestAction::act()
 {
 
+}
+
+void RequestAction::print(ostream&)
+{
+	cout << "("<<orderTypeToString(m_orderType)<< "," << m_requestTimeStep << "," << m_ID << ")";
 }
 
 

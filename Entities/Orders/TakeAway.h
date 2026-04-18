@@ -11,4 +11,5 @@ class TakeAway :public Order
 {
 public:
 	TakeAway(int, int, int, int);
+	void print(ostream&) override;
 };

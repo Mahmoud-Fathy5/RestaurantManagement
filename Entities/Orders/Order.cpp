@@ -5,6 +5,7 @@
 #include "Order.h"
 #include <iostream>
 
+
 Order::Order(int requestTimeStep, int sizeNumberOfDishesOfOrder, int orderPrice, int orderID):m_orderID(orderID)
 {
 	setRequestTimeStep(requestTimeStep);
@@ -69,6 +70,6 @@ OrderTypeSec Order::getOrderType() const
 
 
 ostream& operator << (ostream& outputStream, Order* pOrder) {
-	outputStream<<pOrder->getOrderID();
-	return outputStream;
+	 pOrder->print(outputStream);
+	 return outputStream;
 };

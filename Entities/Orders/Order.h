@@ -6,6 +6,7 @@
 
 #include "../chefs/Chef.h"
 #include "../../DEFS.h"
+#include <ostream>
 
 using namespace std;
 
@@ -33,7 +34,7 @@ public:
 	int getOrderID()const;
 	OrderTypeSec getOrderType()const;
 
-	virtual void print()const=0;
+	virtual void print(ostream&)=0;
 	
 
 };

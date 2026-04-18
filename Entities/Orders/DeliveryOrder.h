@@ -21,4 +21,6 @@ public:
 	float getDistance()const;
 	Scooter* getScooter()const;
 
+	void print(ostream&) override;
+
 };

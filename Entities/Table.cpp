@@ -45,7 +45,10 @@ void Table::print() const
 }
 
 ostream& operator << (ostream& outputStream, Table* pTable) {
-	outputStream << pTable->getTableID();
+	if (pTable->getFreeSeats() >0) {
+		outputStream << "[T" << pTable->getTableID() << "," << pTable->getCapacity() << "," << pTable->getFreeSeats() << "]";
+	}
+	
 	return outputStream;
 };
 

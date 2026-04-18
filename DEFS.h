@@ -16,3 +16,8 @@ enum OrderTypeSec
 	GRILLED,
 	COLD
 };
+
+enum Mode {
+	SILENT,
+	INTERACTIVE
+};
