@@ -12,6 +12,21 @@ UI::~UI()
 {
 }
 
+string UI::readInputFileName()
+{
+    cout << "Enter the input file name: ";
+    string fileName;
+    cin >> fileName;
+    cout<< endl;
+    return fileName+".txt";
+
+}
+
+void UI::readOutputFileName(string s)
+{
+    cout<<"The Output File Name is :"<<s<<endl;
+}
+
 void UI::readMode()
 {
 	int mode;
@@ -145,4 +160,10 @@ void UI::printScreen(int currentTimeStep,
     cout << finishedOrders->getCount() << " Finshed: ";
     finishedOrders->print();
     cout << endl;
+    cout << "------------------------------------------" << endl;
+    cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << endl;
+
+    //Clear the input buffer and wait for the user to   press any  key
+    cin.ignore();
+    cin.get();
 }

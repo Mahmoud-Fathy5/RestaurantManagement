@@ -18,6 +18,26 @@ void Order::setRequestTimeStep(int num)
 	m_requestTimeStep = (num > 0) ? num : -1;
 }
 
+void Order::setAssignmentTimeStep(int num)
+{
+	m_assignmentTimeStep = (num > 0) ? num : -1;
+}
+
+void Order::setReadyTimeStep(int num)
+{
+	m_readyTimeStep = (num > 0) ? num : -1;
+}
+
+void Order::setServiceTimeStep(int num)
+{
+	m_ServiceTimeStep = (num > 0) ? num : -1;
+}
+
+void Order::setFinshTimeStep(int num)
+{
+	m_FinshTimeStep = (num > 0) ? num : -1;
+}
+
 
 
 
@@ -39,6 +59,26 @@ void Order::setChef(Chef* pC)
 int Order::getRequestTimeStep() const
 {
 	return m_requestTimeStep;
+}
+
+int Order::getAssignmentTimeStep() const
+{
+	return m_assignmentTimeStep;
+}
+
+int Order::getReadyTimeStep() const
+{
+	return m_readyTimeStep;
+}
+
+int Order::getServiceTimeStep() const
+{
+	return m_ServiceTimeStep;
+}
+
+int Order::getFinshTimeStep() const
+{
+	return m_FinshTimeStep;
 }
 
 int Order::getNumberOfDishes() const

@@ -16,7 +16,8 @@ public:
 
 	UI();
 	~UI();
-
+    string readInputFileName();
+    void readOutputFileName(string);
 	void readMode();
     void printScreen(int currentTimeStep,
         LinkedQueue<Action*>* actionsList,
