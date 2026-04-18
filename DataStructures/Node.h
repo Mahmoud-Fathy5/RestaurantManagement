@@ -67,5 +67,5 @@ Node<T>* Node<T>::getNext() const
 template < typename T >
 void Node<T>::print() const
 {
-	cout << item << endl;
+	cout << item;
 }

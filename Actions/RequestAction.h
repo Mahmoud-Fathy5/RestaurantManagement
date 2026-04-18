@@ -17,7 +17,7 @@ private:
 
 	OrderType m_orderType;
 	int m_requestTimeStep;
-	int ID;
+	int m_ID;
 	int m_sizeWhichIsNumberOfDishesOfOrder;
 	float m_orderPrice;
 	int m_numberOfSeatsForDineInOrders;
@@ -34,5 +34,6 @@ public:
 	int getRequestTimeStep();
 
 	void act();
+	void print(ostream&) override;
 
 };

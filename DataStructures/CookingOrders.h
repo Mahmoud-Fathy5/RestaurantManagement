@@ -2,6 +2,7 @@
 #include "priQueue.h"
 #include "../Entities/Orders/Order.h"
 
+
 //CookingOrders.h
 //Author: Mahmoud Fathy  Date:[17/4/2026] 
 
@@ -23,6 +24,14 @@ public:
 				cancelledOrder = o;
 			}	//End else
 		}	//End while
+		while (!temp.isEmpty()) {
+			Order* o;
+			int pri;
+			temp.dequeue(o, pri);
+			this->enqueue(o, pri);
+		}	//End while
 		return cancelledOrder;
 	}	//End cancelOrder
+
+	
 };

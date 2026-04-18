@@ -28,6 +28,8 @@ public:
 	Table* getTable()const;
 
 
+	void print(ostream&) override;
+
 
 
 };

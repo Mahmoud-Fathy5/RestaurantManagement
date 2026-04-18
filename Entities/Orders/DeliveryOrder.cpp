@@ -32,3 +32,14 @@ Scooter* DeliveryOrder::getScooter() const
 {
 	return m_pScooter;
 }
+
+void DeliveryOrder::print(ostream& O)
+{
+	if (this->getScooter() != nullptr) {
+			O << "[" << getOrderID() << ",S" << getScooter()->getScooterID() << "]";
+		}
+	else{
+			O << getOrderID();
+		}
+	
+}

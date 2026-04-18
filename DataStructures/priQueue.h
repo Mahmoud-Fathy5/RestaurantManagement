@@ -7,6 +7,7 @@
 template <typename T>
 class priQueue
 {
+
 private :
     priNode<T>* head;
     int m_count;
@@ -74,6 +75,9 @@ public :
         {
             
             ptr->print();
+            if (ptr->getNext() != nullptr) {
+			cout << ",";
+		}
             ptr = ptr->getNext();
 
         }

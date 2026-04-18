@@ -37,7 +37,7 @@ public :
 
 	void print() const
 	{
-		cout << item << endl;
+		cout << item;
 	}
 }; // end Node
 

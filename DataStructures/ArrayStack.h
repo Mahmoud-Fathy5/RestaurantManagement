@@ -65,7 +65,10 @@ public:
 	{
 		for (int i = 0; i <= top; i++)
 		{
-			cout << items[i] << endl;
+			cout << items[i];
+			if (i < top) {
+				cout << ",";
+			}
 		} 
 	}  // end print
 

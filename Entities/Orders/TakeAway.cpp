@@ -7,3 +7,10 @@ TakeAway::TakeAway(int requestTimeStep, int sizeNumberOfDishesOfOrder, int order
 {
 
 }
+
+void TakeAway::print(ostream& O)
+{
+	O<<getOrderID();
+}
+
+

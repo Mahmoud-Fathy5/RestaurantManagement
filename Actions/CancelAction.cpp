@@ -26,4 +26,9 @@ void CancelAction::act()
 
 }
 
+void CancelAction::print(ostream&)
+{
+	cout << "(X,"<<m_cancellationTimeStep<<","<<m_ID << ")";
+}
+
 

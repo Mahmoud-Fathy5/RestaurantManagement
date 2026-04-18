@@ -24,5 +24,6 @@ public:
 	int getIDForDeliveryOrders();
 
 	void act();
+	void print(ostream&) override;
 
 };
