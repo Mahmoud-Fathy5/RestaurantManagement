@@ -17,7 +17,14 @@ enum OrderTypeSec
 	COLD
 };
 
-enum Mode {
+enum Mode
+{
 	SILENT,
 	INTERACTIVE
+};
+
+enum ChefType
+{
+	CN,
+	CS
 };

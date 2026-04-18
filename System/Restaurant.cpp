@@ -10,13 +10,13 @@ void Restaurant::readChef(ifstream&file)
 	for (int i = 0; i < stoi(nc); i++)
 	{
 		//add speed to chef constructor
-		Chef* ch = new Chef(stoi(snc));
+		Chef* ch = new Chef(stoi(snc), CN);
 		freeNormalChef.enqueue(ch);
 	}
 	for (int i = 0; i < stoi(sc); i++)
 	{
 		//add speed to chef constructor
-		Chef* ch = new Chef(stoi(ssc));
+		Chef* ch = new Chef(stoi(ssc), CS);
 		freeSpecialChef.enqueue(ch);
 	}
 
@@ -104,13 +104,13 @@ void Restaurant::generateRandomOrders()
 	int noOfNC = rand() % 20 + 5;
 	for (int i = 0; i < noOfNC; i++)
 	{
-		Chef* NC = new Chef(0);
+		Chef* NC = new Chef(0, CN);
 		freeNormalChef.enqueue(NC);
 	}
 	int noOfSC = rand() % 20 + 5;
 	for (int i = 0; i < noOfNC; i++)
 	{
-		Chef* SC = new Chef(0);
+		Chef* SC = new Chef(0, CS);
 		freeSpecialChef.enqueue(SC);
 	}
 	int noOfScooters = rand() % 20 + 5;
@@ -226,45 +226,63 @@ void Restaurant::randomChefAssignment()
 		switch (order)
 		{
 		case ODN:
-			pendingDineInNormalOrderList.dequeue(o);
+			if (!pendingDineInNormalOrderList.dequeue(o)) { continue; }
 			chef ? (freeNormalChef.dequeue(c)) : (freeSpecialChef.dequeue(c));
-			if (!c || !o) { continue; }
+			if (!c) {
+				pendingDineInNormalOrderList.enqueue(o);
+				continue;
+			}
 			o->setChef(c);
 			cookingOrders.enqueue(o, 0);
 			break;
 		case ODG:
-			pendingDineInGrilledOrderList.dequeue(o);
+			if (!pendingDineInGrilledOrderList.dequeue(o)) { continue; }
 			chef ? (freeNormalChef.dequeue(c)) : (freeSpecialChef.dequeue(c));
-			if (!c || !o) { continue; }
+			if (!c) {
+				pendingDineInGrilledOrderList.enqueue(o);
+				continue;
+			}
 			o->setChef(c);
 			cookingOrders.enqueue(o, 0);
 			break;
 		case OT:
-			pendingTakeAwayOrderList.dequeue(o);
+			if (!pendingTakeAwayOrderList.dequeue(o)) { continue; }
 			chef ? (freeNormalChef.dequeue(c)) : (freeSpecialChef.dequeue(c));
-			if (!c || !o) { continue; }
+			if (!c) {
+				pendingTakeAwayOrderList.enqueue(o);
+				continue;
+			}
 			o->setChef(c);
 			cookingOrders.enqueue(o, 0);
 			break;
 		case OVG:
 			int pri;
-			pendingDeliveryGrilledOrders.dequeue(o,pri);
+			if (!pendingDeliveryGrilledOrders.dequeue(o, pri)) { continue; }
 			chef ? (freeNormalChef.dequeue(c)) : (freeSpecialChef.dequeue(c));
-			if (!c || !o) { continue; }
+			if (!c) {
+				pendingDeliveryGrilledOrders.enqueue(o, 0);
+				continue;
+			}
 			o->setChef(c);
 			cookingOrders.enqueue(o, 0);
 			break;
 		case OVN:
-			pendingDeliveryNormalOrderList.dequeue(o);
+			if (!pendingDeliveryNormalOrderList.dequeue(o)) { continue; };
 			chef ? (freeNormalChef.dequeue(c)) : (freeSpecialChef.dequeue(c));
-			if (!c || !o) { continue; }
+			if (!c) {
+				pendingDeliveryNormalOrderList.enqueue(o);
+				continue;
+			}
 			o->setChef(c);
 			cookingOrders.enqueue(o, 0);
 			break;
 		case OVC:
-			pendingDeliveryColdOrders.dequeue(o);
+			if (!pendingDeliveryColdOrders.dequeue(o)) { continue; };
 			chef ? (freeNormalChef.dequeue(c)) : (freeSpecialChef.dequeue(c));
-			if (!c || !o) { continue; }
+			if (!c) {
+				pendingDeliveryColdOrders.enqueue(o);
+				continue;
+			}
 			o->setChef(c);
 			cookingOrders.enqueue(o, 0);
 			break;
@@ -284,7 +302,8 @@ void Restaurant::randomFinishedCooking()
 			int pri;
 			cookingOrders.dequeue(o, pri);
 			if (!o) { continue; }
-			freeNormalChef.enqueue(o->getChef());
+			if (o->getChef()->getChefType() == CN) { freeNormalChef.enqueue(o->getChef()); }
+			else { freeSpecialChef.enqueue(o->getChef()); }
 			o->setChef(nullptr);
 			if (dynamic_cast<DineInOrder*>(o)) { readyDineInOrder.enqueue(o); }
 			if (dynamic_cast<DeliveryOrder*>(o)) { readyDeliveryOrder.enqueue(o); }
@@ -346,7 +365,7 @@ void Restaurant::randomServiceAssignment()
 void Restaurant::randomCancelOrder()
 {
 	srand(time(0));
-	int random = rand() % 500;
+	int random = rand() % 500 + 1;
 	Order* cancelled = pendingDeliveryColdOrders.cancelOrder(random);
 	if (cancelled) {
 		cancelledOrders.push(cancelled);
@@ -358,7 +377,12 @@ void Restaurant::randomCancelOrder()
 	}
 	random = rand() % 500;
 	cancelled = cookingOrders.cancelOrder(random);
+
 	if (cancelled) {
+		Chef* c= cancelled->getChef();
+		cancelled->setChef(nullptr);
+		if (c->getChefType() == CN) { freeNormalChef.enqueue(c); }
+		else { freeSpecialChef.enqueue(c); }
 		cancelledOrders.push(cancelled);
 	}
 }
@@ -383,7 +407,9 @@ void Restaurant::randomFinishingOrder()
 		{
 			finishedOrders.push(o);
 			DineInOrder* od = (DineInOrder*)o;
-			freeTables.enqueue(od->getTable(), 0);
+			Table* t = od->getTable();
+			if (!t) { return; }
+			freeTables.enqueue(t, 0);
 			od->setTable(nullptr);
 		}
 	}

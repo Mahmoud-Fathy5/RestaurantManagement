@@ -14,13 +14,14 @@ private:
 	const int m_chefSpeed;
 	const int m_chefID;
 	static int s_count;
-
+	ChefType m_chefType;
 
 public:
-	Chef(int);
+	Chef(int, ChefType);
 	~Chef();
 	int getChefSpeed()const;
 	int getChefID()const;
+	ChefType getChefType();
 
 	void print()const;
 	friend ostream& operator << (ostream& outputStream, Chef* pChef) {

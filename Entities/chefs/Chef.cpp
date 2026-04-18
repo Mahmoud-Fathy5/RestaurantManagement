@@ -4,7 +4,7 @@
 #include<iostream>
 #include "Chef.h"
 
-Chef::Chef(int chefSpeed):m_chefID(s_count++),m_chefSpeed(chefSpeed)
+Chef::Chef(int chefSpeed, ChefType ct):m_chefID(s_count++),m_chefSpeed(chefSpeed),m_chefType(ct)
 {
 }
 
@@ -17,6 +17,11 @@ int Chef::getChefSpeed() const
 int Chef::getChefID() const
 {
 	return m_chefID;
+}
+
+ChefType Chef::getChefType()
+{
+	return m_chefType;
 }
 
 int Chef::s_count = 0;
