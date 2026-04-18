@@ -20,6 +20,7 @@
 #include"../DataStructures/FitTables.h"
 #include"../DataStructures/DerivedQueue.h"
 #include"../DataStructures/ArrayStack.h"
+#include"../Entities/Orders/TakeAway.h"
 
 
 
@@ -108,7 +109,14 @@ public:
 	void addBusySharableTables(Table*);
 	void addBusyNoShareTables(Table*);*/
 
-	
 
+	void generateRandomOrders();
+	void randomChefAssignment();
+	void randomFinishedCooking();
+	void randomServiceAssignment();
+	void randomCancelOrder();
+	void randomFinishingOrder();
+	void randomScooters();
+	void simulate();
 
 };

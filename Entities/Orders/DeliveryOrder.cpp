@@ -5,11 +5,11 @@
 
 DeliveryOrder::DeliveryOrder(int requestTimeStep, int sizeNumberOfDishesOfOrder,
 	int orderPrice, int orderID,float distance,
-	Scooter* pS, OrderTypeSec type):
+	OrderTypeSec type):
 	Order(requestTimeStep, sizeNumberOfDishesOfOrder, orderPrice, orderID)
 {
 	 setDistance(distance);
-	 setScooter(pS);
+	 setScooter(nullptr);
 	 m_orderType = type;
 }
 
