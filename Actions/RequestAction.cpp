@@ -57,7 +57,7 @@ void RequestAction::act()
 
 void RequestAction::print(ostream&)
 {
-	cout << "("<<orderTypeToString(m_orderType)<< "," << m_requestTimeStep << "," << m_ID << ")";
+	cout << "["<<orderTypeToString(m_orderType)<< "," << m_requestTimeStep << "," << m_ID << "]";
 }
 
 

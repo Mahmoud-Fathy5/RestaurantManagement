@@ -108,8 +108,3 @@ OrderTypeSec Order::getOrderType() const
 
 
 
-
-ostream& operator << (ostream& outputStream, Order* pOrder) {
-	 pOrder->print(outputStream);
-	 return outputStream;
-};

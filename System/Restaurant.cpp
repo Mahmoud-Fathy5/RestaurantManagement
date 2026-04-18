@@ -413,14 +413,10 @@ void Restaurant::randomScooters()
 void Restaurant::simulate()
 {
 	int currnet_Time_Step = 0;
+	Action* taha= new RequestAction;
+	generateRandomOrders();
+	actionsList.enqueue(taha);
 	while ((finishedOrders.getCount() + cancelledOrders.getCount()) != 500) {
-		generateRandomOrders();
-		randomChefAssignment();
-		randomFinishedCooking();
-		randomServiceAssignment();
-		randomCancelOrder();
-		randomFinishingOrder();
-		randomScooters();
 		userInterface->printScreen(currnet_Time_Step,
 			actionsList,
 			pendingDineInGrilledOrderList,
@@ -444,6 +440,13 @@ void Restaurant::simulate()
 			freeTables,
 			busySharable,
 			busyNoShare);
+
+		randomChefAssignment();
+		randomFinishedCooking();
+		randomServiceAssignment();
+		randomCancelOrder();
+		randomFinishingOrder();
+		randomScooters();
 		currnet_Time_Step++;
 
 	};

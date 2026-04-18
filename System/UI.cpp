@@ -97,7 +97,7 @@ void UI::printScreen(int currentTimeStep,
     cout << endl;
 
 
-    cout << "—------------- Available chefs IDs —----------------------" << endl;
+    cout << "----------------------------------------- Available Chefs -----------------------------------------" << endl;
     cout << freeSpecialChef.getCount() <<" CS : ";
     freeSpecialChef.print();
     cout << endl;
@@ -116,10 +116,10 @@ void UI::printScreen(int currentTimeStep,
     readyTakeAwayOrder.print();
     cout << endl;
     cout << readyDeliveryOrder.getCount() << " OV ";
-    readyTakeAwayOrder.print();
+    readyDeliveryOrder.print();
     cout << endl;
     cout << readyDineInOrder.getCount() << " OD ";
-    readyTakeAwayOrder.print();
+    readyDineInOrder.print();
     cout << endl;
 
 

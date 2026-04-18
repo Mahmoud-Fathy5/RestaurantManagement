@@ -75,6 +75,7 @@ The constructor of the LinkedQueue class.
 template <typename T>
 LinkedQueue<T>::LinkedQueue()
 {
+	m_count = 0;
 	backPtr=nullptr;
 	frontPtr=nullptr;
 
@@ -91,15 +92,11 @@ LinkedQueue<T>::~LinkedQueue()
 {
 	//Note that the cout statements here is just for learning purpose
 	//They should be normally removed from the destructor
-	cout<<"\nStarting LinkedQueue destructor...";
-	cout<<"\nFreeing all nodes in the queue...";
 
 	//Free all nodes in the queue
 	T temp;
 	while(dequeue(temp));
 	
-	cout<<"\n Is LinkedQueue Empty now?? ==> "<<boolalpha<<isEmpty();
-	cout<<"\nEnding LinkedQueue destructor..."<<endl;
 }
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -136,6 +133,7 @@ bool LinkedQueue<T>::enqueue( const T& newEntry)
 		backPtr->setNext(newNodePtr); // The queue was not empty
 
 	backPtr = newNodePtr; // New node is the last node now
+	m_count++;
 	return true ;
 } // end enqueue
 
@@ -165,7 +163,7 @@ bool LinkedQueue<T>:: dequeue(T& frntEntry)
 		
 	// Free memory reserved for the dequeued node
 	delete nodeToDeletePtr;
-
+	m_count--;
 	return true;
 }
 

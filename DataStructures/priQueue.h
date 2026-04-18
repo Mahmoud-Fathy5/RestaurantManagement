@@ -36,7 +36,8 @@ public :
             current = current->getNext();
         }
         newNode->setNext( current->getNext());
-        current->setNext( newNode);        
+        current->setNext( newNode);   
+        m_count++;
     }
 
     bool dequeue(T& topEntry, int& pri) {
@@ -47,6 +48,7 @@ public :
         priNode<T>* temp = head;
         head = head->getNext();
         delete temp;
+        m_count--;
         return true;
     }
 

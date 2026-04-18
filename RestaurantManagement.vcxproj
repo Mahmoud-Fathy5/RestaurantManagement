@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Actions\action.cpp" />
     <ClCompile Include="Entities\chefs\Chef.cpp" />
     <ClCompile Include="Entities\Orders\DeliveryOrder.cpp" />
     <ClCompile Include="Entities\Orders\DineInOrder.cpp" />

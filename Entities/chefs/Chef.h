@@ -5,6 +5,8 @@
 //Author:Mahmoud Taha Date[13/4/2026]
 
 #include "../../DEFS.h"
+#include <iostream>
+using namespace std;
 
 class Chef
 {
@@ -21,5 +23,9 @@ public:
 	int getChefID()const;
 
 	void print()const;
+	friend ostream& operator << (ostream& outputStream, Chef* pChef) {
+		outputStream << pChef->getChefID();
+		return outputStream;
+	};
 
 };

@@ -47,7 +47,11 @@ public:
 	OrderTypeSec getOrderType()const;
 
 	virtual void print(ostream&)=0;
-	
+
+	friend ostream& operator << (ostream& outputStream, Order* pOrder) {
+		pOrder->print(outputStream);
+		return outputStream;
+	};
 
 };
 

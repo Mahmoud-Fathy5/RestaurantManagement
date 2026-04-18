@@ -21,7 +21,3 @@ int Chef::getChefID() const
 
 int Chef::s_count = 0;
 
-std::ostream& operator << (std::ostream& outputStream, Chef* pChef) {
-	outputStream << pChef->getChefID();
-	return outputStream;
-};

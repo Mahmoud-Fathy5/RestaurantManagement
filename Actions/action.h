@@ -21,6 +21,10 @@ public:
 
 	virtual void act() = 0;
 	virtual void print(ostream&) = 0;
+	friend ostream& operator <<(ostream& O, Action* pAction) {
+	pAction->print(O);
+	return O;
+	}	
 
 };
 

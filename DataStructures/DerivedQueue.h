@@ -22,6 +22,12 @@ public:
 				cancelledOrder = o;
 			}	//End else
 		}	//End while
+		while (!temp.isEmpty())
+		{
+			Order* o;
+			temp.dequeue(o);
+			this->enqueue(o);
+		}
 		return cancelledOrder;
 	}	//End cancelOrder
 };
