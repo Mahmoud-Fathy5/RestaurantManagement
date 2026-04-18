@@ -76,9 +76,16 @@ void Restaurant::readActions(ifstream&file)
 	
 }
 
+
+
 Restaurant::Restaurant()
 {
-	
+	userInterface = new UI();
+}
+
+Restaurant::~Restaurant()
+{
+	delete userInterface;
 }
 
 void Restaurant::readInput(ifstream&file)
@@ -167,7 +174,7 @@ void Restaurant::generateRandomOrders()
         {
             float dist = (rand() % 1000) / 10.0f;
 
-            Order* o = new DeliveryOrder(TQ, size, price, id, distance);
+            Order* o = new DeliveryOrder(TQ, size, price, id, dist,NORMAL);
             pendingDeliveryNormalOrderList.enqueue(o);
             break;
         }
@@ -176,7 +183,7 @@ void Restaurant::generateRandomOrders()
         {
             float dist = (rand() % 1000) / 10.0f;
 
-            DeliveryOrder* o = new DeliveryOrder(TQ, size, TQ, size, price, dist, GRILLED);
+            DeliveryOrder* o = new DeliveryOrder(TQ, size, price,id, dist, GRILLED);
 
             float priority = 0;
             pendingDeliveryGrilledOrders.enqueue(o, priority);
@@ -188,7 +195,7 @@ void Restaurant::generateRandomOrders()
         {
             float dist = (rand() % 1000) / 10.0f;
 
-            Order* o = new DeliveryOrder((TQ, size, TQ, size, price, dist, COLD);
+            Order* o = new DeliveryOrder(TQ, size, price,id, dist, COLD);
             pendingDeliveryColdOrders.enqueue(o);
             break;
         }
@@ -240,7 +247,8 @@ void Restaurant::randomChefAssignment()
 			cookingOrders.enqueue(o, 0);
 			break;
 		case OVG:
-			pendingDeliveryGrilledOrders.dequeue(o);
+			int pri;
+			pendingDeliveryGrilledOrders.dequeue(o,pri);
 			chef ? (freeNormalChef.dequeue(c)) : (freeSpecialChef.dequeue(c));
 			if (!c || !o) { continue; }
 			o->setChef(c);
@@ -291,10 +299,12 @@ void Restaurant::randomServiceAssignment()
 	{
 		if (readyDeliveryOrder.isEmpty() && readyDineInOrder.isEmpty() && readyTakeAwayOrder.isEmpty()) { return; }
 		int random = rand() % 3;
+		Order* o = nullptr;
 		switch (random)
 		{
+		
 		case 0: //OD
-			Order* o = nullptr;
+			
 			readyDineInOrder.dequeue(o);
 			if (o) {
 				DineInOrder* od = (DineInOrder*)o;
@@ -309,7 +319,7 @@ void Restaurant::randomServiceAssignment()
 			}
 			break;
 		case 1: //OV
-			Order * o = nullptr;
+			
 			readyDeliveryOrder.dequeue(o);
 			if (o) {
 				DeliveryOrder* ov = (DeliveryOrder*)o;
@@ -320,7 +330,7 @@ void Restaurant::randomServiceAssignment()
 			}
 			break;
 		case 2:
-			Order * o = nullptr;
+			
 			readyTakeAwayOrder.dequeue(o);
 			if (o) {
 				finishedOrders.push(o);
@@ -339,12 +349,12 @@ void Restaurant::randomCancelOrder()
 		cancelledOrders.push(cancelled);
 	}
 	random = rand() % 500;
-	Order* cancelled = readyDeliveryOrder.cancelOrder(random);
+	cancelled = readyDeliveryOrder.cancelOrder(random);
 	if (cancelled) {
 		cancelledOrders.push(cancelled);
 	}
 	random = rand() % 500;
-	Order* cancelled = cookingOrders.cancelOrder(random);
+	cancelled = cookingOrders.cancelOrder(random);
 	if (cancelled) {
 		cancelledOrders.push(cancelled);
 	}
@@ -402,7 +412,8 @@ void Restaurant::randomScooters()
 
 void Restaurant::simulate()
 {
-	while (finishedOrders.getCount() != 500) {
+	int currnet_Time_Step = 0;
+	while ((finishedOrders.getCount() + cancelledOrders.getCount()) != 500) {
 		generateRandomOrders();
 		randomChefAssignment();
 		randomFinishedCooking();
@@ -410,8 +421,35 @@ void Restaurant::simulate()
 		randomCancelOrder();
 		randomFinishingOrder();
 		randomScooters();
-	}
+		userInterface->printScreen(currnet_Time_Step,
+			actionsList,
+			pendingDineInGrilledOrderList,
+			pendingDineInNormalOrderList,
+			pendingTakeAwayOrderList,
+			pendingDeliveryNormalOrderList,
+			pendingDeliveryColdOrders,
+			pendingDeliveryGrilledOrders,
+			freeSpecialChef,
+			freeNormalChef,
+			cancelledOrders,
+			finishedOrders,
+			cookingOrders,
+			readyTakeAwayOrder,
+			readyDeliveryOrder,
+			readyDineInOrder,
+			inServiceOrder,
+			freeScooters,
+			backScooters,
+			maintenanceScooter,
+			freeTables,
+			busySharable,
+			busyNoShare);
+		currnet_Time_Step++;
+
+	};
+		
 }
+
 
 
 

@@ -21,7 +21,7 @@
 #include"../DataStructures/DerivedQueue.h"
 #include"../DataStructures/ArrayStack.h"
 #include"../Entities/Orders/TakeAway.h"
-
+#include"UI.h"
 
 
 
@@ -46,12 +46,12 @@ private:
 	void readTables(ifstream&);
 	void readActions(ifstream&);
 	
-
+	UI* userInterface;
 	LinkedQueue<Action*>actionsList;
 	LinkedQueue<Order*>pendingDineInGrilledOrderList;
 	LinkedQueue<Order*>pendingDineInNormalOrderList;
 	LinkedQueue<Order*>pendingTakeAwayOrderList;
-	LinkedQueue<Order*>pendingDeliveryDineInNormalOrderList;
+	LinkedQueue<Order*>pendingDeliveryNormalOrderList;
 	DerivedQueue pendingDeliveryColdOrders;
 	priQueue<Order*>pendingDeliveryGrilledOrders;
 	LinkedQueue<Chef*>freeSpecialChef;
@@ -69,9 +69,12 @@ private:
 	FitTables freeTables;
 	FitTables busySharable;
 	FitTables busyNoShare;
+
+
+
 public:
 	Restaurant();
-	~Restaurant()=default;
+	~Restaurant();
 
 	/*void setNormalChefSpeed(int);
 	void setSpecialChefSpeed(int);

@@ -47,118 +47,118 @@ void UI::readMode()
 }
 
 void UI::printScreen(int currentTimeStep,
-    LinkedQueue<Action*>* actionsList,
-    LinkedQueue<Order*>* pendingDineInGrilledOrderList,
-    LinkedQueue<Order*>* pendingDineInNormalOrderList,
-    LinkedQueue<Order*>* pendingTakeAwayOrderList,
-    LinkedQueue<Order*>* pendingDeliveryDineInNormalOrderList,
-    DerivedQueue* pendingDeliveryColdOrders,
-    priQueue<Order*>* pendingDeliveryGrilledOrders,
-    LinkedQueue<Chef*>* freeSpecialChef,
-    LinkedQueue<Chef*>* freeNormalChef,
-    ArrayStack<Order*>* cancelledOrders,
-    ArrayStack<Order*>* finishedOrders,
-    CookingOrders* cookingOrders,
-    LinkedQueue<Order*>* readyTakeAwayOrder,
-    DerivedQueue* readyDeliveryOrder,
-    LinkedQueue<Order*>* readyDineInOrder,
-    priQueue<Order*>* inServiceOrder,
-    priQueue<Scooter*>* freeScooters,
-    priQueue<Scooter*>* backScooters,
-    LinkedQueue<Scooter*>* maintenanceScooter,
-    FitTables* freeTables,
-    FitTables* busySharable,
-    FitTables* busyNoShare)
+    LinkedQueue<Action*>& actionsList,
+    LinkedQueue<Order*>& pendingDineInGrilledOrderList,
+    LinkedQueue<Order*>& pendingDineInNormalOrderList,
+    LinkedQueue<Order*>& pendingTakeAwayOrderList,
+    LinkedQueue<Order*>& pendingDeliveryDineInNormalOrderList,
+    DerivedQueue& pendingDeliveryColdOrders,
+    priQueue<Order*>& pendingDeliveryGrilledOrders,
+    LinkedQueue<Chef*>& freeSpecialChef,
+    LinkedQueue<Chef*>& freeNormalChef,
+    ArrayStack<Order*>& cancelledOrders,
+    ArrayStack<Order*>& finishedOrders,
+    CookingOrders& cookingOrders,
+    LinkedQueue<Order*>& readyTakeAwayOrder,
+    DerivedQueue& readyDeliveryOrder,
+    LinkedQueue<Order*>& readyDineInOrder,
+    priQueue<Order*>& inServiceOrder,
+    priQueue<Scooter*>& freeScooters,
+    priQueue<Scooter*>& backScooters,
+    LinkedQueue<Scooter*>& maintenanceScooter,
+    FitTables& freeTables,
+    FitTables& busySharable,
+    FitTables& busyNoShare)
 {
     cout << "Current Timestep:" << currentTimeStep <<endl;
     cout << "=============== Actions List ================"<<endl;
-    cout << actionsList->getCount() << "actions remaining:";
-    actionsList->print();
+    cout << actionsList.getCount() << "actions remaining:";
+    actionsList.print();
     cout << endl;
 
     cout << "—------------- Pending Orders IDs —---------------------" << endl;
-    cout << pendingDineInGrilledOrderList->getCount() << " ODG ";
-    pendingDineInGrilledOrderList->print();
+    cout << pendingDineInGrilledOrderList.getCount() << " ODG ";
+    pendingDineInGrilledOrderList.print();
     cout << endl;
-    cout << pendingDineInNormalOrderList->getCount() << " ODN ";
-    pendingDineInNormalOrderList->print();
+    cout << pendingDineInNormalOrderList.getCount() << " ODN ";
+    pendingDineInNormalOrderList.print();
     cout << endl;
-    cout << pendingTakeAwayOrderList->getCount() << " OT ";
-    pendingTakeAwayOrderList->print();
+    cout << pendingTakeAwayOrderList.getCount() << " OT ";
+    pendingTakeAwayOrderList.print();
     cout << endl;
-    cout << pendingDeliveryColdOrders->getCount() << " OVC ";
-    pendingDeliveryColdOrders->print();
+    cout << pendingDeliveryColdOrders.getCount() << " OVC ";
+    pendingDeliveryColdOrders.print();
     cout << endl;
-    cout << pendingDeliveryGrilledOrders->getCount() << " OVG ";
-    pendingDeliveryGrilledOrders->print();
+    cout << pendingDeliveryGrilledOrders.getCount() << " OVG ";
+    pendingDeliveryGrilledOrders.print();
     cout << endl;
-    cout << pendingDeliveryDineInNormalOrderList->getCount() << " OVN ";
-    pendingDeliveryDineInNormalOrderList->print();
+    cout << pendingDeliveryDineInNormalOrderList.getCount() << " OVN ";
+    pendingDeliveryDineInNormalOrderList.print();
     cout << endl;
 
 
     cout << "—------------- Available chefs IDs —----------------------" << endl;
-    cout << freeSpecialChef->getCount() <<" CS : ";
-    freeSpecialChef->print();
+    cout << freeSpecialChef.getCount() <<" CS : ";
+    freeSpecialChef.print();
     cout << endl;
-    cout << freeNormalChef->getCount() <<" CN : ";
-    freeNormalChef->print();
+    cout << freeNormalChef.getCount() <<" CN : ";
+    freeNormalChef.print();
     cout << endl;
 
 
     cout << "—------------- Cooking orders [Orders ID, chef ID] —---------------------" << endl;
-    cout <<cookingOrders->getCount()<<" cooking orders: [";
-    cookingOrders->print();
+    cout <<cookingOrders.getCount()<<" cooking orders: [";
+    cookingOrders.print();
     cout << "]";
 
     cout << "—------------- Ready Orders IDs —---------------------" << endl;
-    cout << readyTakeAwayOrder->getCount()<< " OT ";
-    readyTakeAwayOrder->print();
+    cout << readyTakeAwayOrder.getCount()<< " OT ";
+    readyTakeAwayOrder.print();
     cout << endl;
-    cout << readyDeliveryOrder->getCount() << " OV ";
-    readyTakeAwayOrder->print();
+    cout << readyDeliveryOrder.getCount() << " OV ";
+    readyTakeAwayOrder.print();
     cout << endl;
-    cout << readyDineInOrder->getCount() << " OD ";
-    readyTakeAwayOrder->print();
+    cout << readyDineInOrder.getCount() << " OD ";
+    readyTakeAwayOrder.print();
     cout << endl;
 
 
     cout << "—------------- Available scooters IDs —----------------------" << endl;
-    cout << freeScooters->getCount() << " Scooters : ";
-    freeScooters->print();
+    cout << freeScooters.getCount() << " Scooters : ";
+    freeScooters.print();
     cout << endl;
 
    
     cout<< "—------------ - Available tables[ID, capacity, free seats] —----------------------"<<endl;
-    cout << freeTables->getCount()+busySharable->getCount()<<" tables";
-    busySharable->print();
+    cout << freeTables.getCount()+busySharable.getCount()<<" tables";
+    busySharable.print();
     cout << endl;
-    freeTables->print();
-
+    freeTables.print();
+    cout << endl;
     cout << "—------------- In-Service orders [order ID, scooter/Table ID] --—---------------------" << endl;
-    cout << inServiceOrder->getCount()<<" Orders: ";
-    inServiceOrder->print();
+    cout << inServiceOrder.getCount()<<" Orders: ";
+    inServiceOrder.print();
     cout << endl;
 
 
     cout << "—------------- In-maintainance scooters IDs ----------------------" <<endl;
-    cout << maintenanceScooter->getCount() << " scooters: ";
-    maintenanceScooter->print();
+    cout << maintenanceScooter.getCount() << " scooters: ";
+    maintenanceScooter.print();
     cout << endl;
 
     cout << "—------------  Scooters Back to Restaurant IDs----------------------" << endl;
-    cout << backScooters->getCount() << " scooters: ";
-    backScooters->print();
+    cout << backScooters.getCount() << " scooters: ";
+    backScooters.print();
     cout << endl;
 
     cout << "—------------- Cancelled Orders IDs ----------------------" << endl;
-    cout << cancelledOrders->getCount() << " Cancelled: ";
-    cancelledOrders->print();
+    cout << cancelledOrders.getCount() << " Cancelled: ";
+    cancelledOrders.print();
     cout << endl;
 
     cout << "—------------- Finished orders IDs----------------------------" << endl;
-    cout << finishedOrders->getCount() << " Finshed: ";
-    finishedOrders->print();
+    cout << finishedOrders.getCount() << " Finshed: ";
+    finishedOrders.print();
     cout << endl;
     cout << "------------------------------------------" << endl;
     cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << endl;
